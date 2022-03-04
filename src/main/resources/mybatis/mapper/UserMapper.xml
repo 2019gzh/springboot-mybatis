@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gan.mapper.UserMapper">
+    <select id="queryUserList" resultType="User">
+        select * from consumer
+    </select>
+    <insert id="addUser" parameterType="User">
+        insert into consumer (id,username,password,sex,phone_num) values (#{id},#{username},#{password},#{sex},#{phone_num})
+    </insert>
+    <update id="updateUser" parameterType="User">
+        update consumer set username=#{username},password=#{password} where id=#{id}
+    </update>
+    <delete id="deleteUser" parameterType="int">
+        delete from consumer where id=#{id}
+    </delete>
+</mapper>
